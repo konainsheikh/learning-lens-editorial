@@ -24,6 +24,7 @@ export default function StaggeredMenu({ items, socialItems, logoUrl, onNavigate,
   const openRef = useRef(false);
   const openTimelineRef = useRef<gsap.core.Timeline | null>(null);
   const closeTweenRef = useRef<gsap.core.Tween | null>(null);
+  const lockedScrollRef = useRef({ x: 0, y: 0 });
 
   useLayoutEffect(() => {
     const context = gsap.context(() => {
@@ -96,26 +97,29 @@ export default function StaggeredMenu({ items, socialItems, logoUrl, onNavigate,
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [handleClose]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!open) return;
     const body = document.body;
     const root = document.documentElement;
-    const scrollY = window.scrollY;
-    const previous = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow };
+    lockedScrollRef.current = { x: window.scrollX, y: window.scrollY };
+    const previous = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow, scrollBehavior: root.style.scrollBehavior };
     root.classList.add("learning-lenz-menu-open");
     body.classList.add("learning-lenz-menu-open");
+    root.style.scrollBehavior = "auto";
     body.style.position = "fixed";
-    body.style.top = `-${scrollY}px`;
+    body.style.top = `-${lockedScrollRef.current.y}px`;
     body.style.width = "100%";
     body.style.overflow = "hidden";
     return () => {
+      const { x, y } = lockedScrollRef.current;
       root.classList.remove("learning-lenz-menu-open");
       body.classList.remove("learning-lenz-menu-open");
       body.style.position = previous.position;
       body.style.top = previous.top;
       body.style.width = previous.width;
       body.style.overflow = previous.overflow;
-      window.scrollTo(0, scrollY);
+      window.scrollTo(x, y);
+      window.requestAnimationFrame(() => { root.style.scrollBehavior = previous.scrollBehavior; });
     };
   }, [open]);
 

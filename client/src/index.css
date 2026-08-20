@@ -247,3 +247,117 @@ h1, h2, h3, p { margin-top: 0; }h1, h2, h3 { font-family: "Sora", sans-serif; }h
 .teaching-story-line-subject span { color: var(--butter); }
 @media (max-width: 767px) { .glass-welcome-title { width: 100%; height: 100%; padding: 0; }.glass-welcome-words { gap: .18em .3em; font-size: 10.3vw !important; line-height: 1.09em; }.learning-lenz-glass-intro .scroll-expand__frame::before { right: -43%; width: 85vw; height: 85vw; }.learning-lenz-glass-intro .scroll-expand__frame::after { left: -43%; width: 70vw; height: 70vw; }.teaching-scroll-story { padding: 22px 20px; }.teaching-scroll-story::after { inset: 10px; }.teaching-story-line { max-width: calc(100% - 32px); letter-spacing: -.06em; }.teaching-story-line-primary, .teaching-story-line-accent { font-size: clamp(2.7rem, 12.5vw, 4.85rem); }.teaching-story-line-catch { max-width: 90%; font-size: clamp(1.95rem, 9.7vw, 3.65rem); }.teaching-story-line-subject { max-width: 90%; padding: 0; font-size: 10px; letter-spacing: .12em; }.teaching-ambient-c { width: 66px; height: 66px; }.teaching-ambient-a { width: 64vw; height: 64vw; } }
 @media (prefers-reduced-motion: reduce) { .glass-welcome-words span, .teaching-story-line { filter: none !important; transform: none !important; }.teaching-ambient { animation: none !important; } }
+
+/* Study Momentum refinement: lesson actions remain compact and the Method section is now a type-led 01–04 sequence. */
+.lesson-specular, .lesson-specular .specular-content, .lesson-specular .specular-content > span { min-width: max-content; }
+.lesson-specular .specular-content > span { display: inline-flex; align-items: center; justify-content: center; gap: 7px; white-space: nowrap; flex-wrap: nowrap; }
+.lesson-specular .specular-content svg { flex: 0 0 auto; }
+
+.method-showcase-body { grid-template-columns: minmax(0, 1fr); }
+.method-visual-v3 { display: none; }
+.method-console-v3 { grid-template-columns: minmax(270px, .84fr) minmax(0, 1.16fr); min-height: 500px; }
+.method-tabs-v3 { display: grid; align-content: stretch; padding: 21px 0; }
+.method-tabs-v3 button { min-height: 112px; align-items: flex-start; gap: 16px; padding: 22px 29px; font-size: 18px; line-height: 1.1; }
+.method-tabs-v3 button > span { min-width: 44px; color: var(--olive); font-family: "Sora", sans-serif; font-size: 28px; font-weight: 800; letter-spacing: -.08em; line-height: .88; }
+.method-tabs-v3 button > b { max-width: 12ch; }
+.method-tabs-v3 button i { width: 5px; }
+.method-detail-v3 { display: flex; min-height: 100%; align-items: flex-start; justify-content: center; flex-direction: column; padding: clamp(42px, 6vw, 80px); }
+.method-detail-v3 > span { font-size: 11px; }
+.method-detail-v3 h3 { max-width: 11ch; margin: 20px 0 18px; font-size: clamp(2.55rem, 4.9vw, 5.15rem); letter-spacing: -.085em; line-height: .92; }
+.method-detail-v3 p { max-width: 35rem; font-size: 16px; line-height: 1.7; }
+.method-progress-v3 { width: min(100%, 32rem); margin-top: 38px; }
+
+@media (max-width: 767px) {
+  .lesson-specular { width: auto; max-width: 100%; }
+  .lesson-specular .specular-content > span { font-size: 12px; }
+  .method-showcase-body { display: block; }
+  .method-console-v3 { display: grid; grid-template-columns: 1fr; min-height: 0; }
+  .method-tabs-v3 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; padding: 14px; }
+  .method-tabs-v3 button { min-height: 72px; align-items: flex-start; gap: 7px; padding: 13px 12px 16px; font-size: 13px; }
+  .method-tabs-v3 button > span { min-width: 28px; font-size: 18px; }
+  .method-tabs-v3 button > b { max-width: 9ch; }
+  .method-detail-v3 { min-height: 270px; padding: 28px 24px 31px; }
+  .method-detail-v3 h3 { max-width: 12ch; margin: 14px 0 12px; font-size: clamp(2.1rem, 10.2vw, 3.4rem); }
+  .method-detail-v3 p { font-size: 13px; line-height: 1.62; }
+  .method-progress-v3 { margin-top: 26px; }
+}
+
+/* Motion carousel refinement: one composited stage per transition, with controls derived from the supplied slide data. */
+.motion-carousel-v5 { margin-top: 48px; }
+.motion-carousel-window { position: relative; overflow: hidden; isolation: isolate; }
+.motion-carousel-slide { width: 100%; will-change: transform, opacity, filter; }
+.story-carousel-v4 .story-peek-slide { width: 100%; }
+.story-carousel-v4 .testimonial-text-card.magic-bento-card { width: 100%; min-height: 540px; height: 540px; box-sizing: border-box; }
+.story-motion-slide-01 .magic-bento-card { background: linear-gradient(160deg, var(--ink), #214e79); color: var(--white); }
+.story-motion-slide-01 .bento-index, .story-motion-slide-01 .magic-bento-card footer { color: var(--sky); }
+.story-motion-slide-01 .magic-bento-card svg { color: var(--butter); }
+.story-motion-slide-01 .magic-bento-card footer { border-color: rgba(217,239,255,.24); }
+.story-motion-slide-01 .magic-bento-card p { margin-top: auto; font-size: 22px; }
+.story-motion-slide-01 .bento-orbit { width: 210px; height: 210px; border-color: rgba(217,239,255,.25); }
+.story-motion-slide-02 .magic-bento-card { background: var(--olive-pale); }
+.story-motion-slide-03 .magic-bento-card { background: #fff2ee; }
+.motion-carousel-controls { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto 36px; align-items: center; gap: 11px; margin-top: 16px; color: var(--ink-soft); font-size: 10px; font-weight: 800; letter-spacing: .07em; }
+.motion-carousel-arrow { display: grid; width: 36px; height: 36px; place-items: center; border: 1px solid rgba(59,130,246,.28); border-radius: 50%; background: rgba(255,255,255,.72); color: var(--ink); cursor: pointer; transition: background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease; }
+.motion-carousel-arrow:hover { border-color: var(--olive); background: var(--olive); color: var(--white); }
+.motion-carousel-arrow:active { transform: scale(.95); }
+.motion-carousel-arrow.is-previous svg { transform: rotate(180deg); }
+.motion-carousel-dots { display: flex; justify-content: center; gap: 6px; }
+.motion-carousel-dots button { width: 7px; height: 7px; padding: 0; border: 0; border-radius: 50%; background: rgba(59,130,246,.25); cursor: pointer; transition: transform .2s ease, background-color .2s ease; }
+.motion-carousel-dots button.is-active { background: var(--olive); transform: scale(1.3); }
+.program-mobile-carousel.motion-carousel-v5 { margin: 0; padding: 15px; }
+.program-mobile-carousel .motion-carousel-controls { color: var(--sky); }
+.program-mobile-carousel .motion-carousel-arrow { border-color: rgba(217,239,255,.35); background: rgba(255,255,255,.08); color: var(--white); }
+.program-mobile-carousel .motion-carousel-arrow:hover { border-color: var(--butter); background: var(--butter); color: var(--ink); }
+.program-mobile-carousel .motion-carousel-dots button { background: rgba(217,239,255,.35); }
+.program-mobile-carousel .motion-carousel-dots button.is-active { background: var(--butter); }
+
+@media (max-width: 767px) {
+  .motion-carousel-v5 { margin-top: 30px; }
+  .story-carousel-v4 .testimonial-text-card.magic-bento-card { min-height: 525px; height: 525px; padding: 24px; }
+  .story-carousel-v4 .testimonial-text-card p { max-height: min(294px, 43vh); font-size: 16px !important; }
+  .motion-carousel-controls { margin-top: 13px; }
+  .program-mobile-carousel.motion-carousel-v5 { margin: 0; }
+}
+
+/* Managed brand asset fallback: preserve the approved logo slot while removing the expired legacy image request. */
+.momentum-brand { width: 82px; height: 44px; background: center / contain no-repeat url("/manus-storage/learning-lenz-logo_8bc9153a.webp"); }
+.momentum-brand .brand-logo { display: none; }
+@media (max-width: 1000px) {
+  .sm-panel-top::before { display: block; width: 80px; height: 42px; flex: 0 0 80px; background: center / contain no-repeat url("/manus-storage/learning-lenz-logo_8bc9153a.webp"); content: ""; }
+  .sm-panel-top img { display: none; }
+}
+
+/* Supplied transparent logo plus Stories deck contract: 2-up desktop, 1.5-up intermediate, and 1-up mobile. */
+.momentum-brand { width: 96px; height: 54px; background-image: url("/manus-storage/the-learning-lens-logo-nobg-cropped_5eda588d.png"); }
+@media (max-width: 1000px) { .sm-panel-top::before { width: 94px; height: 52px; flex-basis: 94px; background-image: url("/manus-storage/the-learning-lens-logo-nobg-cropped_5eda588d.png"); } }
+
+.story-desktop-deck { display: block; }
+.story-mobile-deck { display: none; }
+.story-desktop-deck .motion-carousel-window { overflow: hidden; }
+.story-deck-page { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.story-deck-card, .story-mobile-card { min-width: 0; }
+.story-uniform-card .testimonial-text-card.magic-bento-card { width: 100%; min-height: 540px; height: 540px; box-sizing: border-box; background: var(--olive-pale); color: var(--ink); }
+.story-uniform-card .testimonial-text-card.magic-bento-card footer { border-color: rgba(59,130,246,.18); }
+.story-uniform-card .testimonial-text-card.magic-bento-card .bento-index { color: var(--olive); }
+.story-uniform-card .testimonial-text-card.magic-bento-card .testimonial-text-card__quote-mark, .story-uniform-card .testimonial-text-card.magic-bento-card svg { color: var(--butter); }
+.story-uniform-card .testimonial-text-card.magic-bento-card p { max-height: 258px; font-size: 18px !important; }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .story-deck-page { grid-template-columns: repeat(2, calc((100% - 16px) / 1.5)); gap: 16px; }
+  .story-uniform-card .testimonial-text-card.magic-bento-card p { max-height: 272px; font-size: 16px !important; }
+}
+
+@media (max-width: 767px) {
+  .story-desktop-deck { display: none; }
+  .story-mobile-deck { display: block; }
+  .story-mobile-deck .testimonial-text-card.magic-bento-card { min-height: 525px; height: 525px; padding: 24px; }
+  .story-mobile-deck .testimonial-text-card.magic-bento-card p { max-height: min(294px, 43vh); font-size: 16px !important; }
+}
+
+/* Mobile navigation refinement: compact top-bar mark, supplied light panel mark, and no visual scroll restoration frame. */
+@media (max-width: 1000px) {
+  .sm-panel-top::before { display: block; width: 86px; height: 58px; flex-basis: 86px; background-image: url("/manus-storage/the-learning-lens-logo-white-lightblue_3f12313d.png"); }
+}
+@media (max-width: 767px) {
+  .momentum-brand { width: 62px; height: 36px; }
+}
