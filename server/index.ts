@@ -16,7 +16,16 @@ async function startServer() {
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
 
-  app.use(express.static(staticPath));
+  app.use(express.static(staticPath, {
+    index: false,
+    maxAge: "1y",
+    immutable: true,
+    setHeaders: (res, filePath) => {
+      if (path.basename(filePath) === "index.html") {
+        res.setHeader("Cache-Control", "no-cache");
+      }
+    },
+  }));
 
   // Handle client-side routing - serve index.html for all routes
   app.get("*", (_req, res) => {
