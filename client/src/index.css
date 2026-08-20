@@ -320,16 +320,16 @@ h1, h2, h3, p { margin-top: 0; }h1, h2, h3 { font-family: "Sora", sans-serif; }h
 }
 
 /* Managed brand asset fallback: preserve the approved logo slot while removing the expired legacy image request. */
-.momentum-brand { width: 82px; height: 44px; background: center / contain no-repeat url("/manus-storage/learning-lenz-logo_8bc9153a.webp"); }
+.momentum-brand { width: 82px; height: 44px; background: center / contain no-repeat url("/manus-storage/the-learning-lens-navbar-logo-blue-orange_ddf2d96f.png"); }
 .momentum-brand .brand-logo { display: none; }
 @media (max-width: 1000px) {
-  .sm-panel-top::before { display: block; width: 80px; height: 42px; flex: 0 0 80px; background: center / contain no-repeat url("/manus-storage/learning-lenz-logo_8bc9153a.webp"); content: ""; }
+  .sm-panel-top::before { display: block; width: 80px; height: 42px; flex: 0 0 80px; background: center / contain no-repeat url("/manus-storage/the-learning-lens-navbar-logo-blue-orange_ddf2d96f.png"); content: ""; }
   .sm-panel-top img { display: none; }
 }
 
 /* Supplied transparent logo plus Stories deck contract: 2-up desktop, 1.5-up intermediate, and 1-up mobile. */
-.momentum-brand { width: 96px; height: 54px; background-image: url("/manus-storage/the-learning-lens-logo-nobg-cropped_5eda588d.png"); }
-@media (max-width: 1000px) { .sm-panel-top::before { width: 94px; height: 52px; flex-basis: 94px; background-image: url("/manus-storage/the-learning-lens-logo-nobg-cropped_5eda588d.png"); } }
+.momentum-brand { width: 96px; height: 54px; background-image: url("/manus-storage/the-learning-lens-navbar-logo-blue-orange_ddf2d96f.png"); }
+@media (max-width: 1000px) { .sm-panel-top::before { width: 94px; height: 52px; flex-basis: 94px; background-image: url("/manus-storage/the-learning-lens-navbar-logo-blue-orange_ddf2d96f.png"); } }
 
 .story-desktop-deck { display: block; }
 .story-mobile-deck { display: none; }
@@ -356,7 +356,7 @@ h1, h2, h3, p { margin-top: 0; }h1, h2, h3 { font-family: "Sora", sans-serif; }h
 
 /* Mobile navigation refinement: compact top-bar mark, supplied light panel mark, and no visual scroll restoration frame. */
 @media (max-width: 1000px) {
-  .sm-panel-top::before { display: block; width: 86px; height: 58px; flex-basis: 86px; background-image: url("/manus-storage/the-learning-lens-logo-white-lightblue_3f12313d.png"); }
+  .sm-panel-top::before { display: block; width: 86px; height: 58px; flex-basis: 86px; background-image: url("/manus-storage/the-learning-lens-mobile-menu-logo-white-light-blue_d1334d38.png"); }
 }
 @media (max-width: 767px) {
   .momentum-brand { width: 62px; height: 36px; }
