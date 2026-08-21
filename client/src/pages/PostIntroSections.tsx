@@ -6,6 +6,7 @@ import { AnimatePresence, motion as motionDev } from "motion/react";
 import { useEffect, useRef, useState, type CSSProperties, type Dispatch, type ReactNode, type SetStateAction } from "react";
 import { ArrowRight, Check, ChevronDown, ExternalLink, Instagram, MessageCircle } from "lucide-react";
 import MoltenMetal from "@/components/MoltenMetal";
+import testimonialRecords from "../data/testimonials.json";
 
 const WHATSAPP_URL = "https://wa.me/923144090277";
 const INSTAGRAM_URL = "https://www.instagram.com/the.learning.lenz/";
@@ -17,12 +18,8 @@ const subjects = [
   { code: "05", title: "ACCA MA / FMA", short: "Management Accounting", detail: "Make calculations, costing methods, and commercial thinking more logical and much less intimidating.", label: "Calculations + commercial clarity" },
 ];
 const methods = [["01", "Concept focus", "Deep clarity on tricky core Accounting principles, built smoothly from the ground up."], ["02", "Topical papers", "Master repetitive exam-question trends and answer layouts, step by step."], ["03", "Technique mastery", "Improve speed, time allocation, and custom scoring tactics for the paper in front of you."], ["04", "Active tracking", "Use continuous evaluation and supportive check-ins to keep progress visible."]];
-const stories = [
-  { index: "01", quote: "Thank you for your support and all the work you’ve put into us throughout the session. Your clear teaching, patience and focus on what’s important has genuinely helped me a lot, and I’m so glad to say that I was able to get an A. I genuinely appreciate every lecture and all the motivation and guidance you’ve provided. Thanks again.", outcome: "A in Business" },
-  { index: "02", quote: "Assalamualaikum Maam, the session with you was truly amazing. Your tips and techniques for the exams were really helpful, and I appreciate your unwavering support for all the students.", outcome: "Straight As in AS Level" },
-  { index: "03", quote: "Miss, honestly I am really grateful to have a teacher like you. You really understood my weak points and helped me improve them. You’re a teacher who cares for their student’s emotional wellbeing as well, and your counselling helped me navigate through a lot of things.", outcome: "A in Business" },
-];
-const storyDeckPages = [stories.slice(0, 2), stories.slice(1, 3)];
+const stories = testimonialRecords.map(({ quote, outcome }, index) => ({ index: String(index + 1).padStart(2, "0"), quote, outcome }));
+const storyDeckPages = Array.from({ length: Math.max(stories.length - 1, 1) }, (_, index) => stories.slice(index, index + 2));
 const lessonSessions = [{ number: "01", eyebrow: "Concept class", title: "Break down the foundations.", detail: "See focused whiteboard work and a clear explanation of the building blocks behind the topic.", href: "https://drive.google.com/file/d/1_V_sHoA3DY4R-l0Qw2y8iKTowojMaEeF/view?usp=sharing" }, { number: "02", eyebrow: "Exam practice", title: "Turn questions into a plan.", detail: "Watch question analysis, technical review, and target strategy pacing come together in one session.", href: "https://drive.google.com/file/d/1quUZzuP7yw6vyU5ZOVYElQrWScgBrTR8/view?usp=sharing&t=7.725" }];
 const programs = [{ title: "O Level / IGCSE", eyebrow: "Build strong foundations", points: ["50-minute target sessions", "Comprehensive concept building", "Learning Lens notes", "Topical paper analysis"] }, { title: "AS & A Level", eyebrow: "Advance your approach", points: ["50-minute high-yield sessions", "Advanced accounting frameworks", "Core learning resources", "Exam technique & speed mastery"] }, { title: "ACCA Professional", eyebrow: "Prepare with precision", points: ["50-minute intensive sessions", "FA & MA module specialization", "Strategic global exam pacing", "Case-study evaluations"] }];
 const faqs = [["How long is each tutoring session?", "Every standard class is 50 minutes long, designed for focused learning without unnecessary cognitive fatigue."], ["Are study resources and past papers provided?", "Students receive access to specialized notes and custom learning resources. Physical past-paper compilations are purchased separately."], ["What happens if a student needs to miss a class?", "With at least 24 hours’ notice, the source describes a flexible rescheduling approach for the session."], ["Are sessions conducted in groups or strictly 1-on-1?", "Both structured small-group and intensive 1-on-1 learning are offered, based on the student's academic needs and learning pace."]];
